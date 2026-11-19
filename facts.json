@@ -70,7 +70,8 @@
     "box_price": "10000 R-MAB or 10 USDT"
   },
   "on_chain_snapshot": {
-    "date": "2026-11-15",
+    "date": "2026-11-20",
+    "method": "JSON-RPC eth_call against BSC mainnet public RPC",
     "note": "snapshot only; re-read the chain for current values",
     "mainnet": {
       "boxes_opened": 420,
