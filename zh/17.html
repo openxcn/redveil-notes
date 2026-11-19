@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>个人整理，非官方公告。本文不构成投资建议，也不承诺任何收益。</title>
+<meta name="description" content="红魔赛马是 BNB 智能链上的链上赛马游戏。多数介绍都在讲马，但更有意思的是它的三种角色：同一场比赛里，三种人分的是同一个下注池里三笔不同的钱。 三种角色 - 社长：开养马场、办比…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/zh/17.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "个人整理，非官方公告。本文不构成投资建议，也不承诺任何收益。", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/zh/17.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/">← 目录</a></nav>
+<h1>个人整理，非官方公告。本文不构成投资建议，也不承诺任何收益。</h1>
+<div class="note">个人整理，非官方公告，不构成投资建议；文中数字以官方文档与链上快照为准。</div>
+<p>红魔赛马是 BNB 智能链上的链上赛马游戏。多数介绍都在讲马，但更有意思的是它的三种角色：同一场比赛里，三种人分的是同一个下注池里三笔不同的钱。</p>
+<h2>三种角色</h2>
+<ul>
+<li><strong>社长</strong>：开养马场、办比赛、收托管费。</li>
+<li><strong>马主</strong>：养马、参赛。托管按天付 R-MAB 给场主，预付不退，单次至少 30 天。</li>
+<li><strong>观众</strong>：只下注猜冠军。</li>
+</ul>
+<h2>下注池怎么分</h2>
+<p>每一注都进同一个池子，池子 100% 拆成三块：</p>
+<ol>
+<li><strong>冠军赔付 75%</strong>：押中冠军的人按投入比例瓜分。如果没人押中冠军，这 75% 在交割时全额归社长。</li>
+<li><strong>马主返佣 5%</strong>：按各匹马收到的注额，返给该马的马主。</li>
+<li><strong>平台四档分润 20%</strong>：金库 30% / 提案人 30% / 邀请人 30% / 基金会社长 10%。</li>
+</ol>
+<p>这就是一场比赛的全部资金结构，没有藏起来的第四块：75 + 5 + 20 = 100。</p>
+<h2>为什么角色重要</h2>
+<p>三笔钱来自同一个池子，所以“谁赢”不是唯一变量。马主不管自家马是否跑第一，都能拿到 5% 返佣；社长靠每匹马的托管费，以及在无人押中时拿走全额 75%；观众的结果只取决于那 75%。</p>
+<h2>名次怎么定</h2>
+<p>不是服务器抽签。名次由开赛后的未来区块哈希，加上开赛时的属性快照共同决定，所以在比赛封盘前没人能算出来。规则写成了游戏内 12 节官方文档，可以逐条核对。</p>
+<h2>可以自己去核对的数字</h2>
+<ul>
+<li>满 6 匹可开赛，报名最多到 12 匹，之后下注窗口最长 12 小时。</li>
+<li>首期创世盲盒 420 盒，精确出 210 匹马（10 公 / 200 母）。</li>
+<li>市场成交税 20%，卖家实收 80%，税额全额走四档分润。</li>
+</ul>
+<p>如果文中数字与链上合约不一致，以合约和游戏内文档为准。</p>
+<p><em>个人整理，非官方公告，不构成投资建议，不承诺收益。红魔 NFT / 红魔赛马与手机品牌红魔手机无关，仅同名。</em></p>
+<p>https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://openxcn.github.io/redveil-notes/sitemap.xml

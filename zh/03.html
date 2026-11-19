@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>14 个合约、四档分润、未来区块哈希：红魔赛马的链上结构</title>
+<meta name="description" content="【官方】本文由红魔 NFT（RedMagic NFT）官方团队发布。唯一正式站：https://redveil.redmagic.pro 。 这篇写给愿意自己去区块浏览器核对的人。…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/zh/03.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "14 个合约、四档分润、未来区块哈希：红魔赛马的链上结构", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/zh/03.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/">← 目录</a></nav>
+<h1>14 个合约、四档分润、未来区块哈希：红魔赛马的链上结构</h1>
+<div class="note">个人整理，非官方公告，不构成投资建议；文中数字以官方文档与链上快照为准。</div>
+<p>【官方】本文由红魔 NFT（RedMagic NFT）官方团队发布。唯一正式站：https://redveil.redmagic.pro 。</p>
+<p>这篇写给愿意自己去区块浏览器核对的人。以下地址全部来自站点唯一的配置文件，与页面实际调用一致。</p>
+<h2>网络</h2>
+<p>BNB Smart Chain 主网（BSC），chainId 56，RPC 为 https://bsc-dataseed1.bnbchain.org 。页面另配了三个备用节点，主节点被限流时会自动切换。</p>
+<h2>14 个合约</h2>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-MAB（游戏主币，8 位小数）</td>
+<td>0x92cB10E1D503b5c41f54fCC6B576176E6f29FBAD</td>
+</tr>
+<tr>
+<td>RUSDT（结算币，18 位小数）</td>
+<td>0xD24746414315c481DF1a6bF52B0602a49aFA1d13</td>
+</tr>
+<tr>
+<td>红魔 NFT（身份，只读引用主网）</td>
+<td>0x01cCd19FFC5814bb0b39aD7a0a7211DEE82E6a97</td>
+</tr>
+<tr>
+<td>基金会金库</td>
+<td>0x20b594571eE9937E2a9f78A020833559148D2666</td>
+</tr>
+<tr>
+<td>赛马 NFT</td>
+<td>0x70a3B7E937DCA935Be59A98f35036325beeb5329</td>
+</tr>
+<tr>
+<td>养成（训练 / 托管 / 配种）</td>
+<td>0xfc32aC83bF4278A6f0Aa0EFa3F3417026f97172E</td>
+</tr>
+<tr>
+<td>养马场 StableHall</td>
+<td>0xa34219080c905e2ccaB014c4978674Ca484540Ce</td>
+</tr>
+<tr>
+<td>交易市场</td>
+<td>0xbB42E59DfFAEcF40dA49B32F0d6251B84b616fa9</td>
+</tr>
+<tr>
+<td>赛事 Race</td>
+<td>0x8F5a241BaD21e63d4a4553BA675CdE76363b5149</td>
+</tr>
+<tr>
+<td>下注 Bet</td>
+<td>0x50358dF97F8129E4C3583149d634312c427A75ED</td>
+</tr>
+<tr>
+<td>身份绑定 / 分润挂账 Box</td>
+<td>0x196546CDb70C398B6aab43d4d04a4F2ABc2F1804</td>
+</tr>
+<tr>
+<td>创世盲盒</td>
+<td>0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60</td>
+</tr>
+<tr>
+<td>创世卡</td>
+<td>0x05c4Fa4bcD2040b6a71687564992ede99A066f7e</td>
+</tr>
+<tr>
+<td>创世卡兑换</td>
+<td>0x628e667224C6830f9e639390aa31cd7A8F8f1d5A</td>
+</tr>
+</tbody>
+</table>
+<p>前四个之外，其余十个都是赛马这条线上实际会调用的合约。R-MAB 是 8 位小数，RUSDT 是 18 位，页面上所有金额换算都必须先读链上 decimals，硬编码小数位一定会错。</p>
+<h2>分账的三条线</h2>
+<p>第一条，下注池。每注固定 1000 R-MAB 或 1 USDT，下注池 100% 拆成：冠军赔付 75%、马主返佣 5%（按各马注额分给对应马主）、平台四档 20%。</p>
+<p>第二条，四档分润。这 20%，以及市场成交税、配种费里的抽成，都按同一个四档分配：金库 30%、提案人 30%、邀请人 30%、基金会社长 10%。比例写在合约里，owner 可调。</p>
+<p>第三条，交易税。市场上成交收 20% 税，卖家实收 80%，税额全额走四档。</p>
+<p>三线分开的意义是：赔付池不会被动用去发分润，分润也不会被拿去补奖池，各自的账各自平。</p>
+<h2>名次是怎么算出来的</h2>
+<p>开赛时锁定全场马匹的属性快照（基因、训练值、血统、胜场、等级等），然后取开赛之后的未来区块哈希，与快照哈希一起计算名次。</p>
+<p>关键词是「未来」：哈希在开赛那一刻还不存在，所以社长和平台都无法提前知道结果，也没有可以回滚的顺序。</p>
+<h2>公测期的边界</h2>
+<p>必须明确：这是公测版，合约仍保留管理权限。这意味着参数、费率、暂停开关都可能被调整，也意味着「完全去中心化」这句话现在不成立，我们也不打算这样宣传。</p>
+<p>能承诺的只有两件：地址就写在上面的表里，可以与页面读取到的一致；页面上的数值与链上不一致时，以链上为准。</p>
+<h2>风险声明</h2>
+<p>本文只做技术结构说明，不构成投资建议，不承诺任何收益。代币是真实链上资产，价格会波动，也可能归零；公测期合约保留管理权限，参与前请自行核对地址与金额，并自行承担全部风险。</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

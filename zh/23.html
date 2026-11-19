@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>身份 NFT 四层：持有即生效，转走即失效</title>
+<meta name="description" content="红魔的身份不是注册出来的，是&quot;持有&quot;出来的。钱包里有那张 NFT，身份就自动生效；NFT 转到别的地址，身份跟着一起走，原地址立刻失去它。这条规则决定了：在这个体系里谈身份，永远得…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/zh/23.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "身份 NFT 四层：持有即生效，转走即失效", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/zh/23.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/">← 目录</a></nav>
+<h1>身份 NFT 四层：持有即生效，转走即失效</h1>
+<div class="note">个人整理，非官方公告，不构成投资建议；文中数字以官方文档与链上快照为准。</div>
+<p>红魔的身份不是注册出来的，是"持有"出来的。钱包里有那张 NFT，身份就自动生效；NFT 转到别的地址，身份跟着一起走，原地址立刻失去它。这条规则决定了：在这个体系里谈身份，永远得回到钱包，而不是账号。</p>
+<h2>持有即生效，不需要绑定</h2>
+<p>按游戏内第 07 节文档：钱包持有红魔 NFT 时，身份自动以所持编号生效，无需绑定；全站邀请关系、推广与分润挂账都以该编号为准；NFT 转到别的地址后，身份一起转走。</p>
+<p>这里没有"申请—审核—开通"的流程，也没有后台可以给你改级别。链上持有什么，就是什么。</p>
+<h2>四层身份，按权限分</h2>
+<p>游戏内文档把参与者分成四层：</p>
+<ul>
+<li><strong>普通玩家</strong>：可以买马、托管、报名、下注、逛市场。没有红魔 NFT 也能参与生态。</li>
+<li><strong>社员</strong>：持有红魔 NFT，享受社员身份与推广分润资格。</li>
+<li><strong>社长</strong>：可以开养马场、开赛事、给自己的公马挂牌配种。</li>
+<li><strong>基金会社长</strong>：最高层级，参与平台分润的 FS 档。</li>
+</ul>
+<p>要说明的是：这四层之间升级的具体条件、名额与费用，事实库没有收录，本文一律写"待核实"，不给数字。任何声称知道确切门槛的说法，都应该以官方文档或链上参数为准。</p>
+<h2>没有 NFT 怎么进：绑定一位邀请人</h2>
+<p>没有红魔 NFT 也能参与，但必须先绑定一位邀请人的红魔 NFT 编号。绑定之后才能下注、参赛、买卖、繁殖；未绑定只有投人气票一个入口，且不参与任何分润。</p>
+<p>这条绑定终身沿用、不能更换。之后如果你自己持有了红魔 NFT，身份会自动改为以你自己的编号生效。换句话说：绑定是入场券，持有才是身份。</p>
+<h2>推广编号只在场地页 ?ref 记归属</h2>
+<p>持有 NFT 后，"我的 → 推广"会显示你的推广编号，也就是你的红魔 NFT 编号。分享社长场地页时，在链接后加 ?ref=编号，场地页才会识别归属。</p>
+<p>关键限制：只有场地页（#venue/社长地址）认这个参数，普通首页链接的 ?ref 目前不记录归属。把 ?ref 加在首页上，看起来一样，实际上不产生归属记录。这是很多人推广白做的主要原因。</p>
+<h2>身份可转让，代价也是真的</h2>
+<p>身份跟着 NFT 走，意味着它可以被卖、被转。接手的人获得同样的身份与挂账归属，转出的人一并失去。这里没有"账号保留、等级不变"这种选项。</p>
+<p>所以转出之前值得问自己一句：我卖的是这张 NFT 的价格，还是我在这个体系里的位置？按这套规则，两者是同一个东西。</p>
+<h2>三个别误读的点</h2>
+<ol>
+<li>"持有即生效"意味着不用绑定，也意味着一旦转走就没有缓冲。</li>
+<li>绑定邀请人编号是终身的、不能更换，绑定前要想清楚。</li>
+<li>?ref 只在场地页生效，首页链接不记归属。</li>
+</ol>
+<p>规则在游戏内第 07 节"身份与分润"有原文，可以逐条核对。</p>
+<p>个人整理，非官方公告，不构成投资建议，不承诺收益。红魔 NFT 与手机品牌红魔手机无关，仅同名。</p>
+<p>官网：https://redmagic.pro
+NFT 平台：https://nft.redmagic.pro
+游戏：https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

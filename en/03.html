@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fourteen Contracts, a Four-Tier Split, and a Future Block Hash: Inside Red Veil&#x27;s On-Chain Structure</title>
+<meta name="description" content="Published by the official RedMagic NFT team. The only live site is https://redveil.redmagi…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/en/03.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Fourteen Contracts, a Four-Tier Split, and a Future Block Hash: Inside Red Veil's On-Chain Structure", "inLanguage": "en", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/en/03.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/en/">← 目录</a></nav>
+<h1>Fourteen Contracts, a Four-Tier Split, and a Future Block Hash: Inside Red Veil&#x27;s On-Chain Structure</h1>
+<div class="note">Personal notes, not an official announcement. Not investment advice.</div>
+<p><em>Published by the official RedMagic NFT team. The only live site is https://redveil.redmagic.pro.</em></p>
+<p>This one is for people who would rather check the chain than read a pitch. Every address below comes from the site's single configuration file and matches what the interface actually calls.</p>
+<h2>Network</h2>
+<p>BNB Smart Chain mainnet, chainId 56, RPC https://bsc-dataseed1.bnbchain.org. Three fallback nodes are configured; the app rotates when the primary is rate-limited.</p>
+<h2>The fourteen contracts</h2>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-MAB (game currency, 8 decimals)</td>
+<td>0x92cB10E1D503b5c41f54fCC6B576176E6f29FBAD</td>
+</tr>
+<tr>
+<td>RUSDT (settlement currency, 18 decimals)</td>
+<td>0xD24746414315c481DF1a6bF52B0602a49aFA1d13</td>
+</tr>
+<tr>
+<td>RedMagic NFT (identity, read-only reference)</td>
+<td>0x01cCd19FFC5814bb0b39aD7a0a7211DEE82E6a97</td>
+</tr>
+<tr>
+<td>Foundation treasury</td>
+<td>0x20b594571eE9937E2a9f78A020833559148D2666</td>
+</tr>
+<tr>
+<td>Horse NFT</td>
+<td>0x70a3B7E937DCA935Be59A98f35036325beeb5329</td>
+</tr>
+<tr>
+<td>Raising (training / boarding / breeding)</td>
+<td>0xfc32aC83bF4278A6f0Aa0EFa3F3417026f97172E</td>
+</tr>
+<tr>
+<td>Stable hall</td>
+<td>0xa34219080c905e2ccaB014c4978674Ca484540Ce</td>
+</tr>
+<tr>
+<td>Marketplace</td>
+<td>0xbB42E59DfFAEcF40dA49B32F0d6251B84b616fa9</td>
+</tr>
+<tr>
+<td>Race</td>
+<td>0x8F5a241BaD21e63d4a4553BA675CdE76363b5149</td>
+</tr>
+<tr>
+<td>Betting</td>
+<td>0x50358dF97F8129E4C3583149d634312c427A75ED</td>
+</tr>
+<tr>
+<td>Identity binding / revenue ledger</td>
+<td>0x196546CDb70C398B6aab43d4d04a4F2ABc2F1804</td>
+</tr>
+<tr>
+<td>Genesis blind box</td>
+<td>0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60</td>
+</tr>
+<tr>
+<td>Genesis card</td>
+<td>0x05c4Fa4bcD2040b6a71687564992ede99A066f7e</td>
+</tr>
+<tr>
+<td>Genesis card redemption</td>
+<td>0x628e667224C6830f9e639390aa31cd7A8F8f1d5A</td>
+</tr>
+</tbody>
+</table>
+<p>R-MAB uses 8 decimals, RUSDT uses 18. Every amount conversion in the app reads <code>decimals()</code> on chain first. Hardcoding either value will produce wrong numbers.</p>
+<h2>Three separate accounting lines</h2>
+<p>One: the betting pool. Fixed stake of 1,000 R-MAB or 1 USDT per bet. The pool splits 100% into 75% to backers of the winner, 5% rebate to horse owners by volume, 20% to the platform.</p>
+<p>Two: the four-tier split. That 20% — along with the platform's cut of market tax and stud fees — is divided as treasury 30%, proposer 30%, inviter 30%, foundation senior 10%. The ratios live in contract storage and are owner-adjustable.</p>
+<p>Three: trade tax. A marketplace sale takes 20%, the seller nets 80%, and the full tax amount flows through the four tiers.</p>
+<p>Keeping these separate matters: payout money is never used to fund the split, and split money is never used to top up a prize pool.</p>
+<h2>How a result is produced</h2>
+<p>At the start of a race, the contract snapshots every horse's stats — gene, training, bloodline, wins, level. The result is then computed from a block hash generated <em>after</em> the start, combined with the snapshot hash.</p>
+<p>The word that matters is "after". At the moment the race begins, the hash does not exist yet, so neither the host nor the platform can know the outcome in advance, and there is no ordering to roll back.</p>
+<h2>The beta boundary</h2>
+<p>To be explicit: this is a public beta, and the contracts retain admin rights. That means parameters, fees, and pause switches can change — and it means "fully decentralized" is not a claim we make, or intend to make.</p>
+<p>Two things we can stand behind: the addresses above are the ones the page reads, and when the page and the chain disagree, the chain is correct.</p>
+<h2>Risk disclosure</h2>
+<p>This article describes technical structure only. It is not investment advice and promises no returns. Tokens are real on-chain assets; prices fluctuate and can go to zero. During beta the contracts retain admin rights. Verify addresses and amounts yourself, and accept full risk.</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

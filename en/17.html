@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personal write-up, not an official announcement. Nothing here is investment advice, and no returns are promised.</title>
+<meta name="description" content="Red Veil Racing is a blockchain horse-racing game on BNB Smart Chain. Most explainers talk…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/en/17.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Personal write-up, not an official announcement. Nothing here is investment advice, and no returns are promised.", "inLanguage": "en", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/en/17.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/en/">← 目录</a></nav>
+<h1>Personal write-up, not an official announcement. Nothing here is investment advice, and no returns are promised.</h1>
+<div class="note">Personal notes, not an official announcement. Not investment advice.</div>
+<p>Red Veil Racing is a blockchain horse-racing game on BNB Smart Chain. Most explainers talk about horses. The more interesting part is that the game has three different roles, and each one is paid from a different slice of the same betting pool.</p>
+<h2>The three roles</h2>
+<ul>
+<li><strong>Club owner</strong>: opens a stable, hosts races, collects boarding fees.</li>
+<li><strong>Horse owner</strong>: keeps and races horses. Boarding is paid per day in R-MAB to the stable owner, prepaid and non-refundable, with a minimum of 30 days per payment.</li>
+<li><strong>Spectator</strong>: only bets on the winner.</li>
+</ul>
+<h2>How the pool is split</h2>
+<p>Every bet goes into one pool, and the pool is divided 100% into three parts:</p>
+<ol>
+<li><strong>75% champion payout</strong> — split pro-rata among everyone who backed the winner. If nobody backed the winner, this 75% goes to the club owner at settlement.</li>
+<li><strong>5% horse owner rebate</strong> — paid to the owner of each horse in proportion to the bets placed on that horse.</li>
+<li><strong>20% platform four-tier split</strong> — vault 30% / proposer 30% / referrer 30% / foundation club owner 10%.</li>
+</ol>
+<p>That is the whole economics of a single race. There is no hidden fourth slice: 75 + 5 + 20 = 100.</p>
+<h2>Why the roles matter</h2>
+<p>Because the three payouts come from the same pool, "who wins" is not the only question. A horse owner earns from the 5% rebate whether or not their horse comes first. A club owner earns boarding fees from every stabled horse, and takes the full 75% when nobody backed the winner. A spectator's result depends only on the 75%.</p>
+<h2>How the winner is decided</h2>
+<p>Results are not drawn by a server. The finishing order is derived from a future block hash plus a snapshot of horse stats taken when the race starts, so the outcome cannot be pre-computed before the race closes. The rules are published as twelve in-game documentation sections that can be checked line by line.</p>
+<h2>Facts worth checking yourself</h2>
+<ul>
+<li>Minimum 6 horses to start; entry stays open up to 12 horses, then a betting window of at most 12 hours.</li>
+<li>First-season genesis boxes were 420 in total and produced exactly 210 horses (10 male / 200 female).</li>
+<li>Market trades carry a 20% tax; the seller receives 80%, and the tax goes entirely to the four-tier split.</li>
+</ul>
+<p>If any number here disagrees with the on-chain contracts, trust the contracts.</p>
+<p><em>Personal write-up. Not an official announcement, not investment advice, and no returns are promised. RedMagic NFT / Red Veil is unrelated to the Red Magic phone brand.</em></p>
+<p>https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

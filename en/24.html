@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How the Winner Is Decided: a Future Block Hash Plus a Stat Snapshot</title>
+<meta name="description" content="Most on-chain games ask you to trust a number they generated. Red Veil Racing does somethi…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/en/24.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How the Winner Is Decided: a Future Block Hash Plus a Stat Snapshot", "inLanguage": "en", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/en/24.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/en/">← 目录</a></nav>
+<h1>How the Winner Is Decided: a Future Block Hash Plus a Stat Snapshot</h1>
+<div class="note">Personal notes, not an official announcement. Not investment advice.</div>
+<p>Most on-chain games ask you to trust a number they generated. Red Veil Racing does something narrower and easier to check: the finishing order is derived from data that does not exist when you place your bet.</p>
+<p>This is a personal write-up, not an official announcement. Nothing here is investment advice, and nothing in this game promises a return.</p>
+<h2>The two inputs</h2>
+<p>When a race is settled, the contract combines two values:</p>
+<ul>
+<li><strong>A future block hash</strong> — the hash of a block that is only produced after the race has started.</li>
+<li><strong>A stat snapshot</strong> — the horses' attributes frozen before the race begins, hashed into a single value.</li>
+</ul>
+<p>The first input cannot be known when bets are open, because the block has not been mined yet. The second is fixed before the race, so no one can change a horse's attributes mid-race to steer the result.</p>
+<h2>Why the order of operations matters</h2>
+<p>A common failure mode in on-chain randomness is settling with data that already exists. If the seed is a past block hash, anyone who can read the chain can compute the result in advance and bet accordingly.</p>
+<p>Red Veil avoids that by committing to a block in the future. Between the close of betting and the moment the block is produced, there is no way to know the outcome — including for the operator.</p>
+<p>The stat snapshot closes the other gap. Even if the seed were unpredictable, an operator who could edit attributes after bets were placed could still bias the result. Freezing the stats first removes that lever.</p>
+<h2>What this does and does not prove</h2>
+<p>It proves the result was not chosen by a person after seeing the bets. Given the same snapshot and the same block hash, the winner is determined.</p>
+<p>It does not make the game risk-free. The prize pool is funded by other players' bets, and the split is fixed by contract: 75% of the betting pool goes to the winner's payout, 5% to the horse owner's rebate, and 20% is divided across four platform tiers. If nobody picks the winning horse, that 75% goes to the race organizer at settlement rather than rolling over.</p>
+<p>It also does not promise that the game is live on mainnet. Racing is currently in public beta on the test chain; the mainnet has the genesis blind boxes. Treat test-chain numbers as beta data, not as production figures.</p>
+<h2>How to check it yourself</h2>
+<p>Everything above is verifiable without trusting this article:</p>
+<ol>
+<li>Read the race contract on a block explorer and confirm the settlement function takes a block hash and a snapshot hash as inputs.</li>
+<li>Compare the snapshot hash before and after betting closes — it should not change.</li>
+<li>Match the block number used at settlement against the block that was produced after the race started.</li>
+</ol>
+<p>That is the whole claim. Not "trust us", but "here are the two inputs, go look".</p>
+<p><em>Personal notes. Not an official announcement. Not investment advice. No returns are promised.</em></p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

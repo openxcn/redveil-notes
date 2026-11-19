@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>没人押中冠军时，75% 赔付池去了哪</title>
+<meta name="description" content="红魔赛车有一个容易被忽略的规则：一场比赛如果没有任何人押中冠军，交割时那 75% 的赔付池会全额归社长。 这不是漏洞，是写进规则的设计。但它会改变你对“下注”这件事的判断。 先看钱…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/zh/20.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "没人押中冠军时，75% 赔付池去了哪", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/zh/20.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/">← 目录</a></nav>
+<h1>没人押中冠军时，75% 赔付池去了哪</h1>
+<div class="note">个人整理，非官方公告，不构成投资建议；文中数字以官方文档与链上快照为准。</div>
+<p>红魔赛车有一个容易被忽略的规则：一场比赛如果没有任何人押中冠军，交割时那 75% 的赔付池会全额归社长。</p>
+<p>这不是漏洞，是写进规则的设计。但它会改变你对“下注”这件事的判断。</p>
+<h2>先看钱怎么分</h2>
+<p>下注池 100% 拆成三块：</p>
+<ul>
+<li>冠军赔付 75%</li>
+<li>马主返佣 5%</li>
+<li>平台四档分润 20%（金库 30%、提案人 30%、邀请人 30%、基金会社长 10%，分配的是这 20%）</li>
+</ul>
+<h2>无人押中会发生什么</h2>
+<p>正常情况下，75% 赔付池分给押中冠军的人。如果全场没人押中，这 75% 不再留在池子里等下一场，而是在交割时整块归社长——文档里叫“沉淀”。</p>
+<p>对社长来说，这是对他开赛、交保证金、承担运营成本的回报之一；对下注者来说，这意味着：<strong>押不中就是押不中，没有“下一场再来”的结转</strong>。</p>
+<h2>这带来两个现实影响</h2>
+<p><strong>第一，冷门结果对社长更有利。</strong> 押注越集中，一旦爆冷，赔付池越可能整块沉淀。这不需要阴谋，规则本身就摆在那里。</p>
+<p><strong>第二，下注前要看分布，而不只看马。</strong> 如果一场比赛里大量资金压在热门马上，你押冷门的期望结构就变了——不是赔率变了，而是对手盘和沉淀规则一起变了。</p>
+<h2>怎么核对</h2>
+<ul>
+<li>规则在游戏内官方文档的赔付章节，12 节里的资金结构部分</li>
+<li>开赛前可以看到下注分布</li>
+<li>赛果由开赛后才产生的区块哈希 + 赛前属性快照哈希决定，赛前不可预测</li>
+</ul>
+<h2>三个提醒</h2>
+<ol>
+<li>沉淀归社长是规则，不是意外，也不构成任何收益承诺</li>
+<li>无人押中是概率事件，不能据此设计“必赚”策略</li>
+<li>所有金额与比例都来自官方文档，链上合约可查</li>
+</ol>
+<p>个人整理，非官方公告，不构成投资建议。测试链数据均为公测数据，主网当前可玩的是创世盲盒，赛马对战仍在测试链公测。</p>
+<p>官网：https://redmagic.pro
+游戏：https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

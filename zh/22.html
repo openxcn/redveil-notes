@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>市场成交税 20%：卖家为什么只收到 80%</title>
+<meta name="description" content="二级市场上一匹马挂 10000 R-MAB，成交那一刻卖家拿到的不是 10000，而是 8000。差的 2000 并没有被平台收进某个不透明的账户，而是按固定比例拆成四份，流向四个…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/zh/22.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "市场成交税 20%：卖家为什么只收到 80%", "inLanguage": "zh-CN", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/zh/22.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/">← 目录</a></nav>
+<h1>市场成交税 20%：卖家为什么只收到 80%</h1>
+<div class="note">个人整理，非官方公告，不构成投资建议；文中数字以官方文档与链上快照为准。</div>
+<p>二级市场上一匹马挂 10000 R-MAB，成交那一刻卖家拿到的不是 10000，而是 8000。差的 2000 并没有被平台收进某个不透明的账户，而是按固定比例拆成四份，流向四个不同的角色。</p>
+<h2>税基是成交价，不是利润</h2>
+<p>规则只有一句：成交收 20% 交易税，卖家实收 80%。税基是成交价，不是卖家赚了多少。这匹马上一手买进来多少钱、这一手是赚是亏，都不影响税额——只要成交，就按成交价的 20% 计。</p>
+<p>这点决定了它更像"交易环节的固定成本"，而不是"对利润征税"。做定价时应该先把这 20% 扣掉，再看自己实际到手多少。</p>
+<h2>20% 全额走四档分润</h2>
+<p>这是最容易被误读的部分。这 20% 不是平台独吞，它整笔进入四档分润：</p>
+<ul>
+<li>金库 30%</li>
+<li>提案人 30%</li>
+<li>邀请人 30%</li>
+<li>基金会社长 10%</li>
+</ul>
+<p>四档加起来正好 100%，也就是那 20% 全部拆完，没有中间留存。按游戏内文档的说法，这四档是"按卖家身份挂账"——身份链对应哪一档，钱就记到谁名下。</p>
+<h2>和下注池里那个 20% 不是同一笔</h2>
+<p>下注池的资金拆法是 75% / 5% / 20%：冠军赔付 75%、马主返佣 5%、平台四档分润 20%。这个 20% 与市场成交税的 20% 数字一样，往下拆的四档比例也一样，但来源完全不同：</p>
+<ul>
+<li>下注池的 20% 来自下注金额</li>
+<li>市场税的 20% 来自马匹成交价</li>
+</ul>
+<p>两笔钱各自独立计算，不会互相补，也不会合并。看到"20%"就默认是同一件事，是最常见的误读。</p>
+<h2>对买卖双方的实际影响</h2>
+<p>对卖家：挂牌价是你的含税价。想净收 8000 就挂 10000；想净收 10000，挂牌价就得往上抬。抬多少由你定，但抬上去之后买家看到的是那个更高的数字，成交难度也会跟着变。</p>
+<p>对买家：你付的是挂牌价，成交后马即时到账，不额外承担这 20%。上架与购买都需要钱包确认，首次上架会先请求一次 NFT 授权。</p>
+<h2>三个别误读的点</h2>
+<ol>
+<li>20% 是成交税，不是盈利税，亏损成交也照收。</li>
+<li>四档分润是把这 20% 全额拆完，不存在"平台先留一部分"。</li>
+<li>市场税的 20% 与下注池的 20% 来源不同，不能合并计算。</li>
+</ol>
+<p>规则在游戏内第 05 节"交易市场"有原文，可以逐条核对。税后到手金额请以下单页面的实时显示为准。</p>
+<p>个人整理，非官方公告，不构成投资建议，不承诺收益。红魔 NFT 与手机品牌红魔手机无关，仅同名。</p>
+<p>官网：https://redmagic.pro
+NFT 平台：https://nft.redmagic.pro
+游戏：https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

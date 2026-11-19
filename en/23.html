@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Four Identity Tiers, and Why Holding the NFT Is What Counts</title>
+<meta name="description" content="In RedMagic, identity is not registered — it is held. If the NFT sits in your wallet, the …">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/en/23.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Four Identity Tiers, and Why Holding the NFT Is What Counts", "inLanguage": "en", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/en/23.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/en/">← 目录</a></nav>
+<h1>Four Identity Tiers, and Why Holding the NFT Is What Counts</h1>
+<div class="note">Personal notes, not an official announcement. Not investment advice.</div>
+<p>In RedMagic, identity is not registered — it is held. If the NFT sits in your wallet, the identity is live. If the NFT moves to another address, the identity moves with it and the old address loses it immediately. That single rule means every conversation about identity here has to start with the wallet, not with an account.</p>
+<h2>Holding is enough — no binding required</h2>
+<p>Per section 07 of the in-game docs: when a wallet holds a RedMagic NFT, its identity takes effect automatically under the held number, with no binding step. Site-wide referral relationships, promotion, and revenue bookings all key off that number. Send the NFT elsewhere and the identity leaves with it.</p>
+<p>There is no "apply, review, activate" pipeline and no back office that can promote your level. What the chain says you hold is what you are.</p>
+<h2>Four tiers, defined by permissions</h2>
+<p>The in-game docs divide participants into four layers:</p>
+<ul>
+<li><strong>Regular player:</strong> can buy horses, board them, register for races, bet, and browse the market. You can take part without holding a RedMagic NFT.</li>
+<li><strong>Member:</strong> holds a RedMagic NFT, with member status and promotion revenue eligibility.</li>
+<li><strong>Organizer:</strong> can open a stable, host races, and list their own stallion for breeding.</li>
+<li><strong>Foundation organizer:</strong> the top layer, participating in the platform's FS share of the four-tier split.</li>
+</ul>
+<p>One caveat: the exact upgrade conditions, seat limits, and fees between these four layers are not recorded in the fact base. This article writes "to be verified" instead of numbers. Any claim of a precise threshold should be checked against official docs or on-chain parameters.</p>
+<h2>Without an NFT: bind a referrer's number</h2>
+<p>You can still participate without a RedMagic NFT, but you must first bind the RedMagic NFT number of a referrer. Only after binding can you bet, race, trade, or breed. Without binding, the only entry point is voting in the popularity poll, and you receive no revenue share at all.</p>
+<p>That binding is permanent and cannot be changed. If you later acquire a RedMagic NFT yourself, the identity switches automatically to your own number. In short: binding is the ticket in; holding is the identity.</p>
+<h2>Referral numbers only count on stable pages via ?ref</h2>
+<p>Once you hold an NFT, "My → Promotion" shows your referral number — your RedMagic NFT number. When sharing an organizer's stable page, you can append ?ref=number to the link, and only then does the page record attribution.</p>
+<p>The important limit: only the stable page (#venue/organizer address) honors this parameter. A ?ref on an ordinary homepage link is currently not recorded. It looks identical in the address bar and produces no attribution at all. That is the main reason a lot of promotion effort goes nowhere.</p>
+<h2>Identity is transferable, and so is the cost</h2>
+<p>Because identity travels with the NFT, it can be sold or transferred. The receiver gets the same status and the same booking attribution; the sender loses both. There is no option to "keep the account, keep the level."</p>
+<p>So before transferring, ask one question: am I selling the price of this NFT, or my position in this system? Under these rules, those are the same thing.</p>
+<h2>Three things not to misread</h2>
+<ol>
+<li>"Holding is enough" means no binding is needed — and also that there is no buffer once you transfer it away.</li>
+<li>Binding a referrer's number is permanent and cannot be changed. Decide before you bind.</li>
+<li>?ref works only on stable pages; homepage links do not record attribution.</li>
+</ol>
+<p>The original text is in section 07, "Identity and Revenue Share," of the in-game docs and can be checked line by line.</p>
+<p>Personal notes, not an official announcement, not investment advice, no promise of returns. RedMagic NFT is unrelated to the RedMagic phone brand; the name is the only overlap.</p>
+<p>Site: https://redmagic.pro
+NFT platform: https://nft.redmagic.pro
+Game: https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>

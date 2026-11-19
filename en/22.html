@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The 20% Market Tax: Why the Seller Only Receives 80%</title>
+<meta name="description" content="A horse listed at 10,000 R-MAB does not pay the seller 10,000. At settlement the seller re…">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/en/22.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The 20% Market Tax: Why the Seller Only Receives 80%", "inLanguage": "en", "author": {"@type": "Person", "name": "个人整理"}, "mainEntityOfPage": "https://openxcn.github.io/redveil-notes/en/22.html"}</script>
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 个人整理</span></header>
+<nav class="crumb"><a href="/en/">← 目录</a></nav>
+<h1>The 20% Market Tax: Why the Seller Only Receives 80%</h1>
+<div class="note">Personal notes, not an official announcement. Not investment advice.</div>
+<p>A horse listed at 10,000 R-MAB does not pay the seller 10,000. At settlement the seller receives 8,000. The missing 2,000 is not swept into some opaque platform account — it is split by fixed percentages across four roles.</p>
+<h2>The tax base is the sale price, not the profit</h2>
+<p>The rule is one line: a 20% transaction tax is charged on settlement, and the seller keeps 80%. The base is the sale price, not how much the seller earned. What the horse cost the previous owner, and whether this sale is a gain or a loss, do not change the tax. If it sells, 20% of the sale price is charged.</p>
+<p>That makes it a fixed cost of trading rather than a tax on profit. When you price a listing, subtract the 20% first, then look at what actually reaches you.</p>
+<h2>The full 20% goes to the four-tier split</h2>
+<p>This is the most misread part. The 20% is not kept by the platform. It enters the four-tier split in full:</p>
+<ul>
+<li>Vault: 30%</li>
+<li>Proposer: 30%</li>
+<li>Referrer: 30%</li>
+<li>Foundation organizer: 10%</li>
+</ul>
+<p>Those four add up to exactly 100%, so the entire 20% is distributed with nothing held back in between. According to the in-game docs, the four tiers are credited "against the seller's identity" — whichever tier your identity chain maps to is where the money is booked.</p>
+<h2>It is not the same 20% as the betting pool</h2>
+<p>The betting pool splits 75% / 5% / 20%: 75% champion payout, 5% horse-owner rebate, 20% platform four-tier split. That 20% and the market tax's 20% are the same number, and the four tiers below them use the same percentages, but the source is completely different:</p>
+<ul>
+<li>The betting pool's 20% comes from bets.</li>
+<li>The market tax's 20% comes from the horse's sale price.</li>
+</ul>
+<p>The two are calculated separately. They do not top each other up and they are never merged. Assuming "20%" always means the same thing is the most common misreading in this system.</p>
+<h2>What it means in practice</h2>
+<p>For sellers: your listing price is a tax-inclusive price. Want to net 8,000? List at 10,000. Want to net 10,000? The listing has to go higher. You decide how much higher, but the buyer sees that larger number, and the harder sale is your problem.</p>
+<p>For buyers: you pay the listing price. The horse arrives immediately after settlement, and you do not carry the 20% on top — it comes out of the seller's side. Both listing and buying require a wallet confirmation, and the first listing triggers an NFT approval request.</p>
+<h2>What you can and cannot list</h2>
+<p>The tax only applies when a sale actually settles, and not every horse is eligible to be listed. Only horses in a free state can go on the market. A horse that is boarded or currently racing is locked and cannot be listed at all — which ties the trading layer back to the boarding rule: while you are paying for stable time, the horse is also not liquid.</p>
+<p>The seller sets the R-MAB listing price. The market sorts listings from low to high, so a seller who raises the price to absorb the tax is competing against every listing that did not. That is the real trade-off: the 20% does not disappear because you raise the price; it gets moved into a number buyers can compare.</p>
+<h2>Three things not to misread</h2>
+<ol>
+<li>The 20% is a settlement tax, not a profit tax. A losing sale still pays it.</li>
+<li>The four-tier split distributes the whole 20%; there is no "platform keeps a slice first."</li>
+<li>The market tax's 20% and the betting pool's 20% have different sources and cannot be combined.</li>
+</ol>
+<p>The original text is in section 05, "Trading Market," of the in-game docs and can be checked line by line. For the exact amount that reaches you, trust the live number on the order page.</p>
+<p>Personal notes, not an official announcement, not investment advice, no promise of returns. RedMagic NFT is unrelated to the RedMagic phone brand; the name is the only overlap.</p>
+<p>Site: https://redmagic.pro
+NFT platform: https://nft.redmagic.pro
+Game: https://redveil.redmagic.pro</p>
+<footer>
+<p>本站为个人整理，非官方公告，不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+44YxMKuhugFjZGY1">中文社区群</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>
