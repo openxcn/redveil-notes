@@ -12,11 +12,24 @@
     "statement": "https://openxcn.github.io/redveil-notes/statement.html",
     "docs": "in-game docs, 12 sections"
   },
+  "chain": {
+    "name": "BNB Smart Chain",
+    "chainId": 56,
+    "explorer": "https://bscscan.com"
+  },
   "contracts": {
-    "chain": "BNB Smart Chain (chainId 56)",
     "GenesisBox_v11": "0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60",
     "GenesisCardNFT": "0x05c4Fa4bcD2040b6a71687564992ede99A066f7e",
-    "HorseNFT_RaceSystem": "0x70a3B7E937DCA935Be59A98f35036325beeb5329"
+    "HorseNFT": "0x70a3B7E937DCA935Be59A98f35036325beeb5329",
+    "Race": "0x8F5a241BaD21e63d4a4553BA675CdE76363b5149",
+    "Bet": "0x50358dF97F8129E4C3583149d634312c427A75ED"
+  },
+  "contract_links": {
+    "GenesisBox_v11": "https://bscscan.com/address/0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60",
+    "GenesisCardNFT": "https://bscscan.com/address/0x05c4Fa4bcD2040b6a71687564992ede99A066f7e",
+    "HorseNFT": "https://bscscan.com/address/0x70a3B7E937DCA935Be59A98f35036325beeb5329",
+    "Race": "https://bscscan.com/address/0x8F5a241BaD21e63d4a4553BA675CdE76363b5149",
+    "Bet": "https://bscscan.com/address/0x50358dF97F8129E4C3583149d634312c427A75ED"
   },
   "read_only_calls": [
     {
@@ -40,16 +53,29 @@
       "selector": "0x61b8ce8c"
     },
     {
-      "contract": "HorseNFT_RaceSystem",
+      "contract": "HorseNFT",
       "function": "totalSupply()",
       "selector": "0x18160ddd"
     },
     {
-      "contract": "HorseNFT_RaceSystem",
+      "contract": "HorseNFT",
       "function": "nextTokenId()",
       "selector": "0x75794a3c"
+    },
+    {
+      "contract": "Race",
+      "function": "raceCount()",
+      "selector": "0x8ba5807c"
     }
   ],
+  "reading_notes": {
+    "nextId_starts_at_1": "GenesisCardNFT.nextId() starts at 1, so cards issued = nextId - 1 (211 means 210 cards).",
+    "nextTokenId_starts_at_1": "HorseNFT.nextTokenId() starts at 1, so horses minted = nextTokenId - 1 (200 means 199 horses).",
+    "decimals": {
+      "R-MAB": 8,
+      "RUSDT": 18
+    }
+  },
   "mechanics": {
     "race_result_source": "future block hash + stat snapshot hash, decided after the race starts",
     "entry_fee": "free to register; betting opens during registration",
@@ -65,12 +91,29 @@
       "foundation_steward": "10%"
     },
     "market_tax": "20% (seller receives 80%)",
+    "deposit_floor": {
+      "R-MAB_field": "100000 R-MAB",
+      "USDT_field": "50 USDT"
+    },
+    "podium_prizes": {
+      "1st": 5000,
+      "2nd": 3000,
+      "3rd": 2000,
+      "unit": "R-MAB (USDT field: 5/3/2)"
+    },
+    "fixed_bet_size": {
+      "R-MAB_field": "1000 R-MAB",
+      "USDT_field": "1 USDT"
+    },
+    "claim_window": "24 hours, unclaimed goes to the organizer",
+    "anomaly_rule": ">=3 winning wallets and >=80% single-bet-on-winner, or all wallets on same horse: funds to foundation vault, host blacklisted, site paused",
     "genesis_boxes": 420,
     "genesis_horses": 210,
     "box_price": "10000 R-MAB or 10 USDT"
   },
   "on_chain_snapshot": {
     "date": "2026-11-20",
+    "block_number": 134560001,
     "method": "JSON-RPC eth_call against BSC mainnet public RPC",
     "note": "snapshot only; re-read the chain for current values",
     "mainnet": {
