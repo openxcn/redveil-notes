@@ -113,14 +113,15 @@
   },
   "on_chain_snapshot": {
     "date": "2026-11-20",
-    "block_number": 134560001,
+    "block_number": 134684325,
     "method": "JSON-RPC eth_call against BSC mainnet public RPC",
     "note": "snapshot only; re-read the chain for current values",
     "mainnet": {
       "boxes_opened": 420,
       "boxes_total": 420,
       "genesis_cards_issued": 210,
-      "horses": 199
+      "horses": 199,
+      "races_created": 21
     }
   },
   "rights_notice": "For deliberate fabrication, organized dissemination of false claims, extortion, defamation or unfair competition, the RedMagic NFT team reserves all legal rights, including takedown and correction requests and reporting to competent authorities.",
