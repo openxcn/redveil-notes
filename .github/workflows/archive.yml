@@ -23,13 +23,13 @@ jobs:
       - name: Wayback Machine save
         run: |
           rm -f failed.txt
-          cat urls.txt | xargs -P 3 -I{} sh -c 'c=$(curl -s -o /dev/null -w "%{http_code}" -m 45 "https://web.archive.org/save/{}" || echo ERR); echo "$c {}"; if [ "$c" = "000" ] || [ "$c" = "ERR" ]; then echo "{}" >> failed.txt; fi'
+          cat urls.txt | xargs -P 3 -I{} sh -c 'c=$(curl -s -o /dev/null -w "%{http_code}" -m 45 "https://web.archive.org/save/{}" || true); echo "${c:-000} {}"; if [ -z "$c" ] || [ "$c" = "000" ]; then echo "{}" >> failed.txt; fi'
           if [ -s failed.txt ]; then
             echo "retry: $(wc -l < failed.txt)"
             while read -r u; do
-              c=$(curl -s -o /dev/null -w "%{http_code}" -m 90 "https://web.archive.org/save/$u" || echo ERR)
-              echo "retry $c $u"
-              sleep 5
+              c=$(curl -s -o /dev/null -w "%{http_code}" -m 120 "https://web.archive.org/save/$u" || true)
+              echo "retry ${c:-000} $u"
+              sleep 8
             done < failed.txt
           fi
       - name: WebSub ping
