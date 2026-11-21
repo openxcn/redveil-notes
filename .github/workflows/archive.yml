@@ -5,12 +5,15 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 2 * * *"
+concurrency:
+  group: archive-ping
+  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
   archive:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - name: Extract sitemap urls
@@ -19,11 +22,7 @@ jobs:
           echo "urls: $(wc -l < urls.txt)"
       - name: Wayback Machine save
         run: |
-          while read -r u; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' -m 90 "https://web.archive.org/save/$u" || echo ERR)
-            echo "$code $u"
-            sleep 4
-          done < urls.txt
+          cat urls.txt | xargs -P 3 -I{} sh -c 'c=$(curl -s -o /dev/null -w "%{http_code}" -m 60 "https://web.archive.org/save/{}" || echo ERR); echo "$c {}"'
       - name: WebSub ping
         run: |
           curl -s -o /dev/null -w 'pubsub %{http_code}\n' -m 30 -X POST https://pubsubhubbub.appspot.com/ \
