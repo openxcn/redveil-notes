@@ -1,0 +1,43 @@
+name: archive-and-ping
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract sitemap urls
+        run: |
+          grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<[^>]*>//g' > urls.txt
+          echo "urls: $(wc -l < urls.txt)"
+      - name: Wayback Machine save
+        run: |
+          while read -r u; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -m 90 "https://web.archive.org/save/$u" || echo ERR)
+            echo "$code $u"
+            sleep 4
+          done < urls.txt
+      - name: WebSub ping
+        run: |
+          curl -s -o /dev/null -w 'pubsub %{http_code}\n' -m 30 -X POST https://pubsubhubbub.appspot.com/ \
+            -d "hub.mode=publish&hub.url=https://openxcn.github.io/redveil-notes/feed.xml" || true
+      - name: IndexNow
+        run: |
+          python3 - <<'PY'
+          import json, re, urllib.request
+          base = "https://openxcn.github.io/redveil-notes"
+          key = "rvr-20261122-bsc-indexnow"
+          urls = re.findall(r"<loc>(.*?)</loc>", urllib.request.urlopen(base + "/sitemap.xml", timeout=30).read().decode())
+          body = json.dumps({"host": "openxcn.github.io", "key": key,
+                             "keyLocation": base + "/" + key + ".txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          print("indexnow", urllib.request.urlopen(req, timeout=40).status, len(urls))
+          PY
