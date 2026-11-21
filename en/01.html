@@ -52,7 +52,7 @@ nav.crumb a{color:var(--muted);text-decoration:none}
 <p>The first genesis blind box run — 420 boxes — is fully sold out. It produced 210 horses: 10 male, 200 female. Today the most direct way to get a horse is to buy one on the marketplace, or to redeem a genesis card you already hold via "My Genesis Cards".</p>
 <h2>How a race actually starts</h2>
 <p>Hosts post collateral to open a race: 100,000 R-MAB minimum for an R-MAB race, 50 USDT for a USDT race. Collateral can be rolled over indefinitely.</p>
-<p>At six horses, the host may start the race manually. If they don't, entries stay open until twelve. Once twelve horses are in, a betting window opens for up to twelve hours, and the host can start early at any time. When the window expires, betting closes and the race starts automatically — anyone can trigger it, so a host who goes offline cannot stall the race. The on-chain buffer is currently 0; the interface adds about a minute of waiting.</p>
+<p>At six horses, the host may start the race manually. If they don't, entries stay open until twelve. Once twelve horses are in, a betting window opens (currently set to 30 minutes on-chain), and the host can start early at any time. When the window expires, betting closes and the race starts; the on-chain start buffer is currently 0, anyone can trigger it, and the system also starts it automatically, so a host who goes offline cannot stall the race.</p>
 <p>At the moment the race starts, every horse's stats are snapshotted. Changing stats afterwards has no effect on the result.</p>
 <h2>Where the money goes</h2>
 <p>Place prizes are 5,000 / 3,000 / 2,000 in an R-MAB race (5 / 3 / 2 USDT in a USDT race), paid out of the host's collateral and scaled down proportionally if the collateral is short.</p>
