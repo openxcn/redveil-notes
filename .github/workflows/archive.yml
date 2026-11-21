@@ -22,7 +22,16 @@ jobs:
           echo "urls: $(wc -l < urls.txt)"
       - name: Wayback Machine save
         run: |
-          cat urls.txt | xargs -P 3 -I{} sh -c 'c=$(curl -s -o /dev/null -w "%{http_code}" -m 60 "https://web.archive.org/save/{}" || echo ERR); echo "$c {}"'
+          rm -f failed.txt
+          cat urls.txt | xargs -P 3 -I{} sh -c 'c=$(curl -s -o /dev/null -w "%{http_code}" -m 45 "https://web.archive.org/save/{}" || echo ERR); echo "$c {}"; if [ "$c" = "000" ] || [ "$c" = "ERR" ]; then echo "{}" >> failed.txt; fi'
+          if [ -s failed.txt ]; then
+            echo "retry: $(wc -l < failed.txt)"
+            while read -r u; do
+              c=$(curl -s -o /dev/null -w "%{http_code}" -m 90 "https://web.archive.org/save/$u" || echo ERR)
+              echo "retry $c $u"
+              sleep 5
+            done < failed.txt
+          fi
       - name: WebSub ping
         run: |
           curl -s -o /dev/null -w 'pubsub %{http_code}\n' -m 30 -X POST https://pubsubhubbub.appspot.com/ \
