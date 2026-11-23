@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>链上实时数据 · 自己核对</title>
+<meta name="description" content="用浏览器直读 BSC 主网的盲盒、马匹与赛事数据，附可自行执行的核对命令。">
+<link rel="canonical" href="https://openxcn.github.io/redveil-notes/live.html">
+<link rel="alternate" type="application/rss+xml" title="Red Veil Racing" href="/feed.xml">
+<link rel="alternate" hreflang="zh-CN" href="https://openxcn.github.io/redveil-notes/live.html">
+<link rel="alternate" hreflang="en" href="https://openxcn.github.io/redveil-notes/en/live.html">
+<link rel="alternate" hreflang="x-default" href="https://openxcn.github.io/redveil-notes/live.html">
+<style>
+:root{--ink:#14161a;--muted:#5b6470;--line:#e6e8ec;--bg:#fbfbfc;--accent:#b3122a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+header.site{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.2px}
+header.site span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+h1{font-size:30px;line-height:1.35;margin:8px 0 14px;letter-spacing:-.2px}
+h2{font-size:21px;margin:32px 0 10px}
+p{margin:14px 0}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 16px;font-size:14px;color:var(--muted);margin:26px 0}
+ul.list{list-style:none;padding:0}
+ul.list li{border-bottom:1px solid var(--line);padding:16px 0}
+ul.list a{font-size:17px;text-decoration:none;color:var(--ink);font-weight:600}
+ul.list a:hover{color:var(--accent)}
+ul.list p{margin:6px 0 0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding-top:18px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+nav.crumb{font-size:13px;margin-bottom:18px}
+nav.crumb a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a href="/">红魔赛马</a><span>Red Veil Racing · 官方资料</span></header>
+<nav class="crumb"><a href="/">← 目录</a></nav>
+<h1>链上实时数据</h1>
+<p class="meta">本页由你的浏览器直接读取 BSC 主网（chainId 56），不经过任何服务器，本站也没有后台。读取失败会显示提示，下方命令可自行复核。</p>
+<table><thead><tr><th>项目</th><th>合约</th><th>读取结果</th></tr></thead><tbody id="lv">
+<tr><td>盲盒已开</td><td>GenesisBox</td><td data-to="0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60" data-sel="0x8906cb2f">—</td></tr>
+<tr><td>盲盒剩余</td><td>GenesisBox</td><td data-to="0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60" data-sel="0x16e64048">—</td></tr>
+<tr><td>创世卡 nextId</td><td>GenesisCardNFT</td><td data-to="0x05c4Fa4bcD2040b6a71687564992ede99A066f7e" data-sel="0x61b8ce8c">—</td></tr>
+<tr><td>参赛马总数</td><td>HorseNFT</td><td data-to="0x70a3B7E937DCA935Be59A98f35036325beeb5329" data-sel="0x18160ddd">—</td></tr>
+<tr><td>下一匹马 ID</td><td>HorseNFT</td><td data-to="0x70a3B7E937DCA935Be59A98f35036325beeb5329" data-sel="0x75794a3c">—</td></tr>
+</tbody></table>
+<p id="lvst" class="meta">正在读取…</p>
+<h2>自己核对</h2>
+<p>把下面的命令粘到终端，返回的十六进制转十进制就是表中数字：</p>
+<pre><code>curl -s https://bsc-dataseed.binance.org -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x89c7f5352A5391ddeaa64Da0708A80e3f92c7e60","data":"0x8906cb2f"},"latest"]}'</code></pre>
+<p>创世卡已发数量 = nextId − 1（合约从 1 开始计数）。链上数字会变，超过 14 天请以最新读取为准。</p>
+<script>
+(function(){
+var RPC=["https://bsc-dataseed.binance.org","https://bsc-dataseed1.defibit.io","https://bsc-dataseed1.ninicoin.io"];
+function call(to,sel){return new Promise(function(res){var i=0;(function go(){if(i>=RPC.length)return res(null);fetch(RPC[i++],{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_call",params:[{to:to,data:sel},"latest"]})}).then(function(r){return r.json();}).then(function(j){if(j&&j.result)res(parseInt(j.result,16));else go();}).catch(go);})();});}
+var cells=[].slice.call(document.querySelectorAll("#lv td[data-to]"));
+var done=0;
+cells.forEach(function(td){
+  call(td.getAttribute("data-to"),td.getAttribute("data-sel")).then(function(v){
+    td.textContent=(v===null?"读取失败（见下方命令）":v);
+    if(++done===cells.length){document.getElementById("lvst").textContent="读取完成，数字来自 BSC 主网当前区块。";}
+  });
+});
+})();
+</script>
+<footer>
+<p>本页由红魔 NFT 官方团队（RedMagic NFT）发布。不构成投资建议，不承诺任何收益。红魔 NFT 与红魔手机品牌无关。</p>
+<p><a href="https://redveil.redmagic.pro/?utm_source=github-pages&utm_medium=referral&utm_content=footer">游戏入口</a> · <a href="https://t.me/+JWe8GfWA3qpmNGU1">官方社区群</a> · <a href="/statement.html">严正声明</a> · <a href="/en/">English</a></p>
+</footer>
+</div>
+</body>
+</html>
